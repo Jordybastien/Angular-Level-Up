@@ -3,10 +3,10 @@
     <button class="btn-success">New Recipe</button>
   </div>
 </div>
-<hr/>
+<hr />
 <div class="row">
   <div class="col-md-12">
-    <a href="#" class="list-group-item clearfix text-reset" *ngFor="let recipe of recipes">
+    <!-- <a href="#" class="list-group-item clearfix text-reset" *ngFor="let recipe of recipes">
       <div class="float-left">
         <h4 class="list-group-item-heading">{{recipe.name}}</h4>
         <p class="list-group-item-text">{{recipe.description}}</p>
@@ -14,7 +14,11 @@
       <span class="float-right">
         <img [src]="recipe.imagePath" alt="" class="img-responsive" style="max-height: 50px;" />
       </span>
-    </a>
-    <app-recipe-item></app-recipe-item>
+    </a> -->
+    <app-recipe-item
+      *ngFor="let recipeEl of recipes"
+      [recipe]="recipeEl"
+      (recipeSelected)="onRecipeSelected(recipeEl)"
+    ></app-recipe-item>
   </div>
 </div>
