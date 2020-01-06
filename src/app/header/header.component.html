@@ -11,8 +11,13 @@
   >
     <span class="navbar-toggler-icon"></span>
   </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div
+    class="navbar-collapse"
+    id="navbarSupportedContent"
+    [class.collapse]="collapsed"
+    (window:resize)="collapsed = true"
+  >
+    <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="#"
@@ -20,10 +25,17 @@
         >
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Recipes</a>
+        <a
+          class="nav-link"
+          href="#"
+          (click)="onSelect('recipe')"
+          >Recipes</a
+        >
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Shopping List</a>
+        <a class="nav-link" href="#" (click)="onSelect('shopping-list')"
+          >Shopping List</a
+        >
       </li>
     </ul>
     <ul class="navbar-right">
@@ -37,7 +49,7 @@
           aria-haspopup="true"
           aria-expanded="false"
         >
-          Manage <span class="caret"></span>
+          Manage <span class="caret"> </span>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">Save Data</a>
